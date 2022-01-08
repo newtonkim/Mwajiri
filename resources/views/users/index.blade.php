@@ -14,7 +14,24 @@
             @endif
           </div>
           <div class="card-header">
-              <a href="{{route('users.create')}}" class="float-right"> <button class="btn btn-primary">Create User</button></a>
+             <div class="row">
+                 <div class="col">
+                     <form action="{{route('users.index')}}" method="GET">
+                         <div class="form-row align-items-center">
+                             <div class="col">
+                                 <input type="search" name="search" class="form-control mb-2" id="inlineFormInput" placeholder="Search">
+                             </div>
+                             <div class="col">
+                                 <button type="submit" class="btn btn-primary mb-2">Search</button>
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+                 <a href="{{route('users.create')}}" class="btn btn-primary">Create</a>
+
+             </div>
+             <div>
+             </div>
           </div>
           <div class="card-body">
             <table class="table table-striped table-dark">
@@ -22,8 +39,6 @@
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Username</th>
-                  {{-- <th scope="col">First Name</th>
-                  <th scope="col">Last Name</th> --}}
                   <th scope="col">Email</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -33,8 +48,6 @@
                   <tr>
                     <th scope="row">{{$user->id}}</th>
                     <td>{{$user->username}}</td>
-                    {{-- <td>{{$user->first_name}}</td>
-                    <td>{{$user->last_name}}</td> --}}
                     <td>{{$user->email}}</td>
                     <td>
                         <a href="{{route('users.edit', $user->id)}}" class="btn btn-success">Edit</a>
