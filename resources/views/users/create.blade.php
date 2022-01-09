@@ -7,7 +7,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Create New User') }}</div>
+                <div class="card-header">{{ __('Create New User') }}
+                    <a href="{{route('users.index')}}" class="float-right">Back</a>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('users.store') }}">
