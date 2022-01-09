@@ -58,7 +58,7 @@
                 </a>
                 <div id="collapseSystem" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Countries</a>
+                        <a class="collapse-item" href="{{route('countries.index')}}">Country</a>
                         <a class="collapse-item" href="cards.html">States</a>
                         <a class="collapse-item" href="cards.html">Cities</a>
                         <a class="collapse-item" href="cards.html">Department</a>
@@ -264,7 +264,10 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->username}}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->username}}</span>
+
+                                {{-- <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$user->username}}</span> --}}
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

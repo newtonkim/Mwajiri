@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -46,7 +47,6 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        // dd($request->all());
         User::create([
             'username' => $request->username,
             'first_name' => $request->first_name,
@@ -98,7 +98,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        if(auth()->user()->id == $user->id)
+    //     $user->delete();
+    //     return redirect()->route('users.index')->with('message', 'User Deleted Successfully');
+
+    // }
+    if(auth()->user()->id == $user->id)
         {
             return redirect()->route('users.index')->with('message', 'You will delete yourself!!!');
         }

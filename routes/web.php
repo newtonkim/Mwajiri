@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\ChangePasswordController;
 
@@ -27,5 +28,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // When you add a resource controller you do not need [] as shown below
 Route::resource('users', UserController::class);
+Route::resource('countries', CountryController::class);
 
 Route::post('users/{user}change-password', [ChangePasswordController::class, 'change_password'])->name('users.change.password');
